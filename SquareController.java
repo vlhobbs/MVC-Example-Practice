@@ -30,6 +30,7 @@ public class SquareController implements MouseListener {
      }
 
      //interface implementations for the MouseListener
+     //for the moment I only need Clicked
     
      public void mousePressed(MouseEvent e) {
      }
@@ -92,22 +93,15 @@ public class SquareController implements MouseListener {
     }
 
     //updateSquareView calls the method to show the information in view
-    //this will be more complex when I am using JFrame
 
     public void drawSquareView() {
     	view.updateSquare();
     	view.drawSquare();
     }
-    
-    
-    public void updateSquareView(){
-        
+	
+    //this is for troubleshooting purposes, prints out the information about the square to console
+    public void showSquareDetails(){
         view.printSquareDetails(model.getSideLength(), model.getColor());
     }
-    
-    /*
-    public void updateSquareView(){
-        
 
-    */
 }
