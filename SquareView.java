@@ -1,15 +1,11 @@
 import java.awt.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SquareView extends JPanel{
-    
-	private static final long serialVersionUID = 1L;
-	//for the moment this just prints out the info about square
-    //later this will need awt and swing and will print the square
-    //controller will update this view as needed
-	private int side;
+    //Eclipse insisted on adding this. Look at it later.
+    private static final long serialVersionUID = 1L;
+    private int side;
     private Color col;        
     private Square squareModel;
 
@@ -19,6 +15,11 @@ public class SquareView extends JPanel{
         this.side = square.getSideLength();
     }
 
+    //resetModel and resetView to ensure the components are coordinated
+    //(I feel like this is blurring the components too much - however
+    //it is helpful for the Swing display. Will need to ask for help for
+    //a way to separate the two.)
+	
     public void resetModel(int sides, Color color) {
     	//this sets the model's color to the view's color.
     	squareModel.setSideLength(sides);    
@@ -33,7 +34,8 @@ public class SquareView extends JPanel{
 
     public void paintComponent (Graphics g){
         super.paintComponent(g);
-        // Get total height and width, divide by 2, start square there
+        // Get total height and width, divide by 2, subtract 1/2 of sidelength
+	// in order to center square
         int x_pos = ((getWidth() / 2)-(side/2));
         int y_pos = ((getHeight() / 2)-(side/2));
         g.setColor(this.col);
@@ -45,16 +47,18 @@ public class SquareView extends JPanel{
         JFrame application = new JFrame();
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         application.add(this);
+	//replace integers w/ a variable
         application.setSize(700,700);
         application.setVisible(true);
     }
 
     public void updateSquare() {
+	//calls function to repaint the square
         repaint();
     }
     
-	public void printSquareDetails(int sideLength, Color color) {
-		System.out.println("Side length = " + sideLength + " and color is " + color + ".");
-	}
-	
+    //troubleshooting - prints square details
+    public void printSquareDetails(int sideLength, Color color) {
+	System.out.println("Side length = " + sideLength + " and color is " + color + ".");
+	}	
 }
