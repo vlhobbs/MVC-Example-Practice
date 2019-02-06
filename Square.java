@@ -13,13 +13,13 @@ public class Square {
         this.sideLength = 1;
     }
 	
-	//Constructor with default color
-	public Square(int startSide) {
-		this.color = Color.white;
-		this.sideLength = startSide;
-	}
+    //Constructor with default color
+    public Square(int startSide) {
+	this.color = Color.white;
+	this.sideLength = startSide;
+    }
 
-	//Constructor with starting arguments just to make this easier
+    //Constructor with starting arguments just to make this easier
     public Square(Color startColor, int startSide){
         this.color = startColor;
         this.sideLength = startSide;
