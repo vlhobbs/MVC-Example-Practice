@@ -7,27 +7,17 @@ public class SquareView extends JPanel{
     private static final long serialVersionUID = 1L;
     private int side;
     private Color col;        
-    private Square squareModel;
+//    private Square squareModel;
 
     public SquareView (Square square){
     	//sets the color to the constructor square
         this.col = square.getColor();
         this.side = square.getSideLength();
     }
-
-    //resetModel and resetView to ensure the components are coordinated
-    //(I feel like this is blurring the components too much - however
-    //it is helpful for the Swing display. Will need to ask for help for
-    //a way to separate the two.)
-	
-    public void resetModel(int sides, Color color) {
-    	//this sets the model's color to the view's color.
-    	squareModel.setSideLength(sides);    
-    	squareModel.setColor(color);
-    	}
     
     public void resetView (Square sq){
-    	//this sets the view colors to the model's color.
+    	//this sets the view colors to the model's color
+    	//uses pull model of MVC
     	this.col = sq.getColor();
         this.side = sq.getSideLength();
     }
